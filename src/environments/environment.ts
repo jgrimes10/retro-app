@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyAl7LLFcQj53A42JIVsuM3thBUnfiSqncs',
+    authDomain: 'retrospec-app.firebaseapp.com',
+    databaseURL: 'https://retrospec-app.firebaseio.com',
+    projectId: 'retrospec-app',
+    storageBucket: 'retrospec-app.appspot.com',
+    messagingSenderId: '102319190998'
+  }
 };
 
 /*

@@ -1,0 +1,15 @@
+<button mat-button (click)="openDialog()">Create Column</button>
+
+<div *ngIf="numCols">
+  <mat-grid-list [cols]="numCols">
+    <mat-grid-tile *ngFor="let col of columns">
+      <mat-grid-tile-header>
+        {{col.name}}
+        <span style="flex: 1 1 auto"></span>
+        <button mat-icon-button (click)="openConfirmDialog(col)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-grid-tile-header>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
