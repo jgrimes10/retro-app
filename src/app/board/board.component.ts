@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { BoardService } from '../services/board.service';
 import { ColumnService } from '../services/column.service';
 import {Column} from '../models/column.model';
@@ -60,10 +60,12 @@ export class BoardComponent implements OnInit {
       if (!result) {
         return;
       }
+
       // create a new column object
       const colToAdd = new Column();
       // set the column name from the value entered into the modal
-      colToAdd.name = result;
+      colToAdd.name = result.name;
+      colToAdd.color = result.color;
       // add the column to db
       this.addColumn(colToAdd);
     });

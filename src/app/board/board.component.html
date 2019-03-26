@@ -3,7 +3,7 @@
 <div *ngIf="numCols">
   <mat-grid-list [cols]="numCols">
     <mat-grid-tile *ngFor="let col of columns">
-      <mat-grid-tile-header>
+      <mat-grid-tile-header [ngClass]="col.color">
         {{col.name}}
         <span style="flex: 1 1 auto"></span>
         <button mat-icon-button (click)="openConfirmDialog(col)">

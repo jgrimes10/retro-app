@@ -9,6 +9,13 @@ import { MatDialogRef } from '@angular/material';
 export class NewColumnModalComponent {
 
   newColumnName = '';
+  colors = ['green', 'blue', 'red'];
+  chosenColor =  '';
+
+  toReturn = {
+    columnName: this.newColumnName,
+    color: this.chosenColor
+  };
 
   constructor(
     public dialogRef: MatDialogRef<NewColumnModalComponent>,
