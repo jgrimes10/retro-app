@@ -33,6 +33,9 @@ export class BoardComponent implements OnInit {
         } as Column;
       });
 
+      // sort the columns earliest to latest
+      this.columns.sort(this.compare);
+
       // get the number of columns
       this.numCols = this.columns.length;
     });
@@ -48,11 +51,24 @@ export class BoardComponent implements OnInit {
     this.columnService.createColumn(this.boardId, JSON.parse(JSON.stringify(column)));
   }
 
+  compare(a, b) {
+    const date1 = a.createdDate;
+    const date2 = b.createdDate;
+
+    let comparison = 0;
+    if (date1 > date2) {
+      comparison = 1;
+    } else if (date1 < date2) {
+      comparison = -1;
+    }
+
+    return comparison;
+  }
+
   // open the modal to add a new column
   openDialog(): void {
     const dialogRef = this.dialog.open(NewColumnModalComponent, {
-      width: '250px',
-      data: {name: this.colName}
+      width: '250px'
     });
 
     // after the user closes the modal
